@@ -11,11 +11,9 @@ class Producer:
     except Exception as e:
         print(e)
     print('Connected to kafka server')
-    producer.send('my_topic', value=json.dumps({"a": "b"}))
 
     @staticmethod
     def send(topic, message):
         print('Sending message to kafka')
-        print(Producer.producer)
-        Producer.producer.send(topic, b'message')
+        Producer.producer.send(topic, json.dumps(message))
         print('Message sent')
